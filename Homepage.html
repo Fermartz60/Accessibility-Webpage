@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página personal accesible de Fernando Martínez, estudiante de Ingeniería en Software." />
+  <link rel="stylesheet" href="CSS/StyleHome.css">
+  <title>Página Personal</title>
+</head>
+
+<body>
+  <!-- ENCABEZADO -->
+  <header>
+    <h1>Fernando Martínez Vega</h1>
+    <p>Estudiante de Ingeniería en Software</p>
+    <!-- Navegación principal -->
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="#estudios">Estudios</a></li>
+        <li><a href="#portafolio">Portafolio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+    <section class="sobre-mi">
+      <div class="texto">
+        <h2>Sobre mí</h2>
+        <p>
+          Hola, soy Fernando Martínez Vega, estudiante de Ingeniería en Software en la Universidad de Colima.
+          Me apasiona el desarrollo de aplicaciones, la accesibilidad web y la creación de soluciones tecnológicas inclusivas.
+        </p>
+        <p>
+          Actualmente estoy cursando materias relacionadas con desarrollo web, análisis de datos y metodologías de software.
+          Busco aplicar buenas prácticas en mis proyectos, especialmente en usabilidad y accesibilidad.
+        </p>
+        <p>
+          En este sitio encontrarás información sobre mis estudios y algunos de los proyectos que he desarrollado como parte de mi formación.
+        </p>
+        <p>
+          Te invito a conocer más sobre mi trabajo y trayectoria académica.
+        </p>
+      </div>
+
+      <div class="retrato">
+      <img src="Gemini_Generated_Image_ptk7jyptk7jyptk7.png" alt="Retrato de Fernando Martínez, autor del proyecto">
+      </div>
+    </section>
+
+    <!-- IMÁGENES -->
+
+    <section class="galeria" aria-labelledby="titulo-galeria">
+      <h2 id="titulo-galeria">Trabajo y desarrollo</h2>
+      <img src="Gemini_Generated_Image_u7jie2u7jie2u7ji.png" alt="Fernando Martínez trabajando en su escritorio con un monitor mostrando código en pantalla.">
+    </section>
+
+    <!-- SECCIÓN DE ESTUDIOS -->
+    <section id="estudios" aria-labelledby="titulo-estudios">
+      <h2 id="titulo-estudios">Estudios</h2>
+      <p>Estos son algunos de mis logros académicos durante la carrera:</p>
+
+      <!-- TABLA CON DATOS -->
+      <table>
+        <caption>Resumen académico</caption>
+        <thead>
+          <tr>
+            <th scope="col">Año</th>
+            <th scope="col">Materia</th>
+            <th scope="col">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2024</td>
+            <td>Desarrollo Web</td>
+            <td>Aprendí fundamentos de HTML, CSS y accesibilidad web.</td>
+          </tr>
+          <tr>
+            <td>2025</td>
+            <td>Ingeniería de Software</td>
+            <td>Desarrollo de proyectos con enfoque en calidad y diseño centrado en el usuario.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECCIÓN PORTAFOLIO -->
+    <section id="portafolio" aria-labelledby="titulo-portafolio">
+      <h2 id="titulo-portafolio">Portafolio</h2>
+      <p>Algunos de los proyectos en los que he trabajado recientemente incluyen aplicaciones móviles y páginas web enfocadas en accesibilidad.</p>
+    </section>
+
+    <!-- FORMULARIO DE CONTACTO -->
+    <section aria-labelledby="contacto">
+      <h2 id="contacto">Contacto</h2>
+      <form aria-describedby="form-desc">
+        <p id="form-desc">Si deseas contactarme, completa los siguientes campos:</p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required aria-required="true" /><br><br>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required aria-required="true"></textarea><br><br>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>&copy; 2025 Fernando Martínez | <a href="#sobre-mi">Volver al inicio</a></p>
+  </footer>
+</body>
+</html>

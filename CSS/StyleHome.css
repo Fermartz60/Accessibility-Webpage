@@ -1,0 +1,265 @@
+/* ================================
+   ESTILOS GENERALES Y ACCESIBLES
+   ================================ */
+
+/* Fuente legible y espaciado adecuado */
+:root {
+  --color-fondo: #ffffff;
+  --color-texto: #1a1a1a;
+  --color-principal: #005fa3;
+  --color-secundario: #f2f2f2;
+  --color-contraste: #00335a;
+  --color-enlace: #005fa3;
+  --color-enlace-hover: #00335a;
+  --fuente-base: 'Segoe UI', Arial, sans-serif;
+  --ancho-maximo: 900px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centramos el contenido principal */
+main {
+  max-width: var(--ancho-maximo);
+  margin: auto;
+  padding: 1rem;
+}
+
+/* ================================
+   ENCABEZADO Y NAVEGACIÓN
+   ================================ */
+
+header {
+  background-color: var(--color-principal);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+header h1 {
+  margin-bottom: 0.3rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:focus,
+nav a:hover {
+  text-decoration: underline;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ================================
+   SECCIONES Y ENCABEZADOS
+   ================================ */
+
+section {
+  margin: 2rem 0;
+  background-color: var(--color-secundario);
+  padding: 1.5rem;
+  border-radius: 8px;
+
+}
+
+h2, h3 {
+  color: var(--color-principal);
+}
+
+.sobre-mi {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  background-color: #f6f6f6;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+/* Columna de texto */
+.texto {
+  flex: 3;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Imagen al lado derecho */
+.retrato {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ================================
+   IMÁGENES
+   ================================ */
+
+.retrato {
+  width: 30%;
+  text-align: center;
+}
+
+.retrato img {
+  width: 200px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+}
+.galeria img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10%;
+  border: 3px solid var(--color-secundario);
+}
+
+/* ================================
+   TABLAS ACCESIBLES
+   ================================ */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+caption {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-principal);
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #e9f0f8;
+}
+
+/* ================================
+   FORMULARIOS
+   ================================ */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 600px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--color-principal);
+  outline: 3px solid #a7d1ff;
+}
+
+button {
+  background-color: var(--color-principal);
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  background-color: var(--color-contraste);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ================================
+   ENLACES
+   ================================ */
+
+a {
+  color: var(--color-enlace);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-enlace-hover);
+  outline: 2px solid var(--color-principal);
+  outline-offset: 3px;
+}
+
+/* ================================
+   PIE DE PÁGINA
+   ================================ */
+
+footer {
+  background-color: var(--color-principal);
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+}
+
+
+/* ================================
+   RESPONSIVIDAD
+   ================================ */
+
+@media (max-width: 1000px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section {
+    padding: 1rem;
+  }
+}
