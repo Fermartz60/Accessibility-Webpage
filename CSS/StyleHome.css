@@ -1,8 +1,6 @@
 /* ================================
-   ESTILOS GENERALES Y ACCESIBLES
+   VARIABLES MODO CLARO
    ================================ */
-
-/* Fuente legible y espaciado adecuado */
 :root {
   --color-fondo: #ffffff;
   --color-texto: #1a1a1a;
@@ -11,20 +9,37 @@
   --color-contraste: #00335a;
   --color-enlace: #005fa3;
   --color-enlace-hover: #00335a;
+  --color-borde: #cccccc;
+  --color-sombra: rgba(0,0,0,0.2);
   --fuente-base: 'Segoe UI', Arial, sans-serif;
-  --ancho-maximo: 900px;
+  --ancho-maximo: 1000px;
+}
+
+/* ================================
+   VARIABLES MODO OSCURO (SOLO AJUSTES)
+   ================================ */
+
+body.modo-oscuro {
+  --color-fondo: #1e1e1e;
+  --color-texto: #e6e6e6;
+
+  --color-principal: #4da3ff;  /* NO afecta enlaces existentes */
+  --color-secundario: #2b2b2b; /* reemplaza #f6f6f6 */
+
+  --color-borde: #555555;
+  --color-sombra: rgba(255,255,255,0.1);
 }
 
 body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
   font-family: var(--fuente-base);
-  line-height: 1.6;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Centramos el contenido principal */
 main {
   max-width: var(--ancho-maximo);
   margin: auto;
@@ -72,51 +87,47 @@ nav a:hover {
    SECCIONES Y ENCABEZADOS
    ================================ */
 
-section {
+section,
+.sobre-mi {
   margin: 2rem 0;
   background-color: var(--color-secundario);
   padding: 1.5rem;
   border-radius: 8px;
-
 }
 
 h2, h3 {
   color: var(--color-principal);
+  transition: color .3s ease;
 }
+
+/* ========================================
+   SECCIÓN SOBRE MÍ (texto + retrato)
+   ======================================== */
 
 .sobre-mi {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* centrado vertical */
   justify-content: space-between;
   gap: 2rem;
-  background-color: #f6f6f6;
   padding: 2rem;
-  border-radius: 5px;
+  border-radius: 8px;
+  flex-wrap: wrap; /* para que en pantallas pequeñas se acomoden uno debajo del otro */
 }
 
-/* Columna de texto */
 .texto {
-  flex: 3;
+  flex: 2;
+  min-width: 250px;
   font-size: 1rem;
   line-height: 1.6;
 }
 
-/* Imagen al lado derecho */
+/* Se eliminó la duplicación de .retrato */
 .retrato {
-  flex: 2;
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-
-/* ================================
-   IMÁGENES
-   ================================ */
-
-.retrato {
-  width: 30%;
-  text-align: center;
+  min-width: 200px;
 }
 
 .retrato img {
@@ -125,36 +136,42 @@ h2, h3 {
   object-fit: cover;
   border-radius: 40%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem;
-}
-.galeria img {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 10%;
-  border: 3px solid var(--color-secundario);
 }
 
 /* ================================
-   TABLAS ACCESIBLES
+   IMÁGENES DE GALERÍA
+   ================================ */
+
+.galeria {
+  max-width: 90%;
+  margin: 20px auto;
+  text-align: center;
+  overflow: hidden; /* Evita que se salga del contenedor */
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 700px;
+  display: block;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-sombra);
+  transition: box-shadow .3s ease;
+}
+
+
+/* ================================
+   TABLAS
    ================================ */
 
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
-}
-
-caption {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
 }
 
 th, td {
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-borde);
   padding: 0.75rem;
-  text-align: left;
 }
 
 th {
@@ -163,8 +180,13 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #e9f0f8;
+  background-color: rgba(0,0,0,0.05);
 }
+
+body.modo-oscuro tr:nth-child(even) {
+  background-color: rgba(255,255,255,0.05);
+}
+
 
 /* ================================
    FORMULARIOS
@@ -183,11 +205,12 @@ label {
 
 input[type="text"],
 textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde);
   border-radius: 6px;
-  font-size: 1rem;
+  padding: 0.75rem;
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease;
 }
 
 input:focus,
@@ -213,6 +236,10 @@ button:focus {
   outline-offset: 2px;
 }
 
+a, button, input, textarea {
+  transition: outline-offset 0.2s ease, background-color 0.3s ease;
+}
+
 /* ================================
    ENLACES
    ================================ */
@@ -223,7 +250,7 @@ a {
 
 a:hover,
 a:focus {
-  color: var(--color-enlace-hover);
+  color: #ffd700;
   outline: 2px solid var(--color-principal);
   outline-offset: 3px;
 }
@@ -248,18 +275,77 @@ footer a:focus {
   text-decoration: underline;
 }
 
-
 /* ================================
    RESPONSIVIDAD
    ================================ */
 
-@media (max-width: 1000px) {
-  nav ul {
-    flex-direction: column;
+@media (max-width: 800px) {
+  .sobre-mi {
+    flex-direction: column-reverse; /* Imagen debajo del texto */
     align-items: center;
+    text-align: center;
   }
 
-  section {
-    padding: 1rem;
+  .retrato img {
+    width: 70%;
+    height: auto;
+    border-radius: 50%;
   }
 }
+
+/* ================================
+   MODO OSCURO
+   ================================ */
+
+body.modo-oscuro {
+  --color-fondo: #1e1e1e;
+  --color-texto: #f0f0f0;
+  --color-principal: #3399ff;
+  --color-secundario: #2b2b2b;
+  --color-contraste: #66b3ff;
+  --color-enlace: #80c1ff;
+  --color-enlace-hover: #ffffff;
+}
+
+/* Botón del modo oscuro */
+.modo-toggle {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.modo-toggle:hover,
+.modo-toggle:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.body.modo-oscuro .retrato img {
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.2);
+}
+
+.body.modo-oscuro .galeria {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  border-color: #333;
+}
+
+.body.modo-oscuro .sobre-mi {
+   background-color: var(--color-secundario);
+  color: #e0e0e0;
+  border-color: #333;
+}
+
+.body.modo-oscuro .texto {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+  border-color: #333;
+}
+
+
